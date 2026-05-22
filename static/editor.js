@@ -25,14 +25,29 @@ function collectData() {
       .filter(Boolean),
   })).filter((s) => s.title || s.items.length);
 
+  const scale = parseInt(document.getElementById("lineSpacing").value, 10) / 100;
+
   const data = {
     name: document.getElementById("name").value.trim(),
     subtitle: document.getElementById("subtitle").value.trim(),
     photo: state?.photo || "",
+    spacing: { scale },
     info_rows,
     sections,
   };
   return data;
+}
+
+function updateSpacingLabel() {
+  const val = document.getElementById("lineSpacing").value;
+  document.getElementById("lineSpacingValue").textContent = `${val}%`;
+}
+
+function applySpacingToForm(scale) {
+  const pct = Math.round((scale ?? 1) * 100);
+  const clamped = Math.min(135, Math.max(75, pct));
+  document.getElementById("lineSpacing").value = String(clamped);
+  updateSpacingLabel();
 }
 
 async function fetchPdfBlob(url, data) {
@@ -92,6 +107,8 @@ function fillForm(data) {
   state = data;
   document.getElementById("name").value = data.name || "";
   document.getElementById("subtitle").value = data.subtitle || "";
+  const scale = data.spacing?.scale ?? (typeof data.spacing === "number" ? data.spacing : 1);
+  applySpacingToForm(scale);
   renderInfoRows(data.info_rows?.length ? data.info_rows : [{ label: "", value: "" }]);
   renderSections(data.sections?.length ? data.sections : [{ title: "", items: [] }]);
   updatePreview();
@@ -175,6 +192,10 @@ async function generatePdf() {
 
 document.getElementById("name").addEventListener("input", updatePreview);
 document.getElementById("subtitle").addEventListener("input", updatePreview);
+document.getElementById("lineSpacing").addEventListener("input", () => {
+  updateSpacingLabel();
+  updatePreview();
+});
 document.getElementById("btnAddInfo").onclick = () => {
   const data = collectData();
   data.info_rows.push({ label: "", value: "" });

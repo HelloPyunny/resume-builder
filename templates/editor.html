@@ -25,6 +25,11 @@
       <input type="text" id="subtitle" />
       <label>Photo (left side in PDF)</label>
       <input type="file" id="photoInput" accept="image/jpeg,image/png,image/webp" />
+      <div class="spacing-control">
+        <label for="lineSpacing">Line spacing <span id="lineSpacingValue">100%</span></label>
+        <input type="range" id="lineSpacing" min="75" max="135" value="100" step="5" />
+        <p class="hint">75% = tighter, 135% = looser (bullets, sections, info table)</p>
+      </div>
       <h2>Info table</h2>
       <div id="infoRows"></div>
       <button type="button" class="btn-outline" id="btnAddInfo">+ Add row</button>

@@ -83,7 +83,29 @@ textarea { min-height: 88px; resize: vertical; }
 }
 .section-block .head { display: flex; gap: 8px; margin-bottom: 8px; }
 .section-block .head input { flex: 1; }
-.hint { font-size: 0.78rem; color: var(--muted); }
+.hint { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+.spacing-control {
+  margin: 14px 0;
+  padding: 12px;
+  background: var(--surface);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.spacing-control label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.spacing-control input[type="range"] {
+  width: 100%;
+  margin-top: 8px;
+  accent-color: var(--accent);
+}
+#lineSpacingValue { font-weight: 700; }
 .status { font-size: 0.85rem; color: var(--muted); padding: 0 24px 12px; }
 .preview-wrap { position: sticky; top: 16px; }
 .preview {
