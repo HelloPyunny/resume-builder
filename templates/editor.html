@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resume Editor</title>
+  <link rel="stylesheet" href="/static/editor.css" />
+</head>
+<body>
+  <header>
+    <h1>Resume Editor</h1>
+    <div class="actions">
+      <button type="button" class="btn-secondary" id="btnReload">Reload</button>
+      <button type="button" class="btn-secondary" id="btnSave">Save</button>
+      <button type="button" class="btn-primary" id="btnPdf">Download PDF</button>
+    </div>
+  </header>
+  <p class="status" id="status">Loading...</p>
+  <main>
+    <section class="panel">
+      <h2>Edit</h2>
+      <label>Name</label>
+      <input type="text" id="name" />
+      <label>Subtitle</label>
+      <input type="text" id="subtitle" />
+      <label>Photo (left side in PDF)</label>
+      <input type="file" id="photoInput" accept="image/jpeg,image/png,image/webp" />
+      <h2>Info table</h2>
+      <div id="infoRows"></div>
+      <button type="button" class="btn-outline" id="btnAddInfo">+ Add row</button>
+      <h2>Sections</h2>
+      <p class="hint">One bullet per line. Use "Title: description" for bold title.</p>
+      <div id="sections"></div>
+      <button type="button" class="btn-outline" id="btnAddSection">+ Add section</button>
+    </section>
+    <section class="panel preview-wrap">
+      <h2>Preview (same PDF as download)</h2>
+      <div class="preview" id="preview"></div>
+    </section>
+  </main>
+  <script src="/static/editor.js"></script>
+</body>
+</html>

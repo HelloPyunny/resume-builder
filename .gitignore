@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Generated PDFs
+*.pdf
+
+# Local editor data & uploads (personal)
+resume_data.json
+uploads/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.cursor/
+
+# Flask / logs
+*.log
+instance/
+.webassets-cache
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
